@@ -1,21 +1,37 @@
 function pergunta(nivel) {
   const perguntas = [
  {
-   question: 'Como chegar ao final?',
+   question: 'Ajude o carro chegar em casa',
    questionImage: 'url da imagem',
    buttonsOpcoes = [
     { id: 0, text: 'CIMA' },
     { id: 1, text: 'BAIXO' },
-    { id: 2, text: 'ESQUERDA' },
+    { id: 2, text: 'FRENTE' },
+    { id: 3, text: 'TRÁS' },
   ],
-  buttonsResposta = [
-    { id: 0, text: 'CIMA' },
-    { id: 1, text: 'BAIXO' },
-    { id: 2, text: 'ESQUERDA' },
+  resposta = [
+    2, 1, 0
   ],
-  nivel: 1
+  dificuldade: 1
  },
-];
+], [
+  {
+    question: 'Ajude o carro chegar em casa',
+    questionImage: 'url da imagem',
+    buttonsOpcoes = [
+     { id: 0, text: 'CIMA' },
+     { id: 1, text: 'BAIXO' },
+     { id: 2, text: 'FRENTE' },
+     { id: 3, text: 'FRENTE' },
+     { id: 4, text: 'FRENTE' },
+     { id: 5, text: 'TRÁS' },
+   ],
+   resposta = [
+     2, 3, 4, 0
+   ],
+   dificuldade: 2
+  }
+ ];
 
 return perguntas[nivel];
 
