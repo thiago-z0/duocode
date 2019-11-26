@@ -1,47 +1,93 @@
-import React, { Component } from 'react';
-import { AiOutlineLoading } from 'react-icons/ai';
-import logo from '../../img/stethoscope.svg';
-import { Link } from 'react-router-dom';
-
-import api from '../../services/api';
+import React,  { useState } from 'react';
+import styled from 'styled-components';
 
 import Container from '../../components/container';
-import Row from '../../components/row';
-import { Loading, Header } from './styles';
 
-export default class Main extends Component {
-  state ={
-    loading: false,
-    doctors: [],
+const buttons = [
+  { id: 0, text: 'CIMA' },
+  { id: 1, text: 'BAIXO' },
+  { id: 2, text: 'ESQUERDA' },
+]
+
+export default function Main() {
+
+  const [ queue, setQueue ] = useState([]);
+
+  const addButtonToQueue = buttonData => () => {
+    setQueue(prev => [ ...prev, buttonData ]);
   }
 
-
-  render() {
-    const { loading } = this.state;
-
-    if (loading) {
-      return (
-        <Loading loading={loading}>
-          {loading ? (
-            <AiOutlineLoading color="#fff" size={80} />
-          ) : (
-            <AiOutlineLoading display="none" />
-          )}
-        </Loading>
-      );
-    }
-
-
-    return(
-
-      <Container>
-        <Header>
-          <img src={logo} alt='Logo'></img>
-          <h1>Doctor_Crud</h1>
-        </Header>
-        <Row/>
-      </Container>
-    )
+  const removeButtonFromQueue = buttonData => () => {
+    setQueue(prev => prev.filter(item => item.id !== buttonData.id));
   }
 
+  return (
+    <Container>
+      <Question>
+        Lorem ipsum dolor sit amet?
+      </Question>
+
+      <Queue>
+        Fila de execução<br />
+        {queue.map(item => (
+          <Button
+            key={item.id}
+            onClick={removeButtonFromQueue(item)}
+          >
+            {item.text}
+          </Button>
+        ))}
+      </Queue>
+
+      {buttons.map(item => (
+        <Button
+          key={item.id}
+          onClick={addButtonToQueue(item)}
+          disabled={queue.includes(item)}
+        >
+          {item.text}
+        </Button>
+      ))}
+
+      <br />
+
+      <ButtonExecute>
+        EXECUTAR
+      </ButtonExecute>
+    </Container>
+  );
 }
+
+const Question = styled.div`
+  font-size: 24px;
+`;
+
+const Queue = styled.div`
+  border-style: dotted;
+  border-width: 2px;
+  border-color: #bbb;
+  width: 100%;
+  height: 64px;
+  margin: 16px 0px;
+  padding: 8px;
+  color: #777;
+`;
+
+const Button = styled.button`
+  border: none;
+  margin: 4px;
+  padding: 20px;
+  width: auto;
+  overflow: visible;
+  background: #ddd;
+  border-radius: 16px;
+  :disabled {
+    color: #aaa;
+    background: #eee;
+  }
+`;
+
+const ButtonExecute = styled(Button)`
+  background: #17a320;
+  color: #fff
+`;
