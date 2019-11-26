@@ -2,15 +2,18 @@ import React,  { useState } from 'react';
 import styled from 'styled-components';
 
 import Container from '../../components/container';
+
 import { Loading, Header } from './styles';
 import Row from '../../components/row';
 import logo from '../../img/code-flat.png';
+
 
 const buttons = [
   { id: 0, text: 'CIMA' },
   { id: 1, text: 'BAIXO' },
   { id: 2, text: 'ESQUERDA' },
 ]
+
 
 export default function Main() {
 
