@@ -3,11 +3,17 @@ import styled from 'styled-components';
 
 import Container from '../../components/container';
 
+import { Loading, Header } from './styles';
+import Row from '../../components/row';
+import logo from '../../img/code-flat.png';
+
+
 const buttons = [
   { id: 0, text: 'CIMA' },
   { id: 1, text: 'BAIXO' },
   { id: 2, text: 'ESQUERDA' },
 ]
+
 
 export default function Main() {
 
@@ -23,9 +29,18 @@ export default function Main() {
 
   return (
     <Container>
+       <Header>
+          <img src={logo} alt='Logo'></img>
+          <h1>  CodeX</h1>
+        </Header>
+        <Row/>
       <Question>
-        Lorem ipsum dolor sit amet?
+        Ajude o Carro a chegar em casa
       </Question>
+
+      <img>
+      
+      </img>
 
       <Queue>
         Fila de execução<br />
@@ -67,7 +82,7 @@ const Queue = styled.div`
   border-width: 2px;
   border-color: #bbb;
   width: 100%;
-  height: 64px;
+  height: 100px;
   margin: 16px 0px;
   padding: 8px;
   color: #777;
