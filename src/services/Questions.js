@@ -10,11 +10,10 @@ function pergunta(nivel) {
     { id: 3, text: 'TRÁS' },
   ],
   resposta = [
-    2, 1, 0
+    'FRENTE', 'BAIXO', 'CIMA'
   ],
   dificuldade: 1
  },
-], [
   {
     question: 'Ajude o carro chegar em casa',
     questionImage: 'url da imagem',
@@ -27,7 +26,7 @@ function pergunta(nivel) {
      { id: 5, text: 'TRÁS' },
    ],
    resposta = [
-     2, 3, 4, 0
+    'FRENTE', 'FRENTE', 'FRENTE', 'CIMA'
    ],
    dificuldade: 2
   }
