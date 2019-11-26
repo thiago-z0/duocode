@@ -34,7 +34,7 @@ export const Header = styled.div`
     }
     h1 {
       font-size: 30px;
-      color: #093087;
+      color: #BC69E4;
     }
 `;
 
