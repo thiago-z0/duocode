@@ -1,12 +1,12 @@
-import React,  { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import Container from '../../components/container';
 
-import { Loading, Header } from './styles';
+import { Header } from './styles';
 import Row from '../../components/row';
 import logo from '../../img/code-flat.png';
-
 
 const buttons = [
   { id: 0, text: 'CIMA' },
@@ -17,15 +17,15 @@ const buttons = [
 
 export default function Main() {
 
-  const [ queue, setQueue ] = useState([]);
+  // const [ queue, setQueue ] = useState([]);
 
-  const addButtonToQueue = buttonData => () => {
-    setQueue(prev => [ ...prev, buttonData ]);
-  }
+  // const addButtonToQueue = buttonData => () => {
+  //   setQueue(prev => [ ...prev, buttonData ]);
+  // }
 
-  const removeButtonFromQueue = buttonData => () => {
-    setQueue(prev => prev.filter(item => item.id !== buttonData.id));
-  }
+  // const removeButtonFromQueue = buttonData => () => {
+  //   setQueue(prev => prev.filter(item => item.id !== buttonData.id));
+  // }
 
   return (
     <Container>
@@ -38,27 +38,33 @@ export default function Main() {
         Ajude o Carro a chegar em casa
       </Question>
 
-      <img>
-      
-      </img>
-
       <Queue>
         Fila de execução<br />
-        {queue.map(item => (
+        {/* {queue.map(item => (
           <Button
             key={item.id}
             onClick={removeButtonFromQueue(item)}
           >
             {item.text}
           </Button>
-        ))}
+        ))} */}
       </Queue>
 
       {buttons.map(item => (
         <Button
           key={item.id}
-          onClick={addButtonToQueue(item)}
-          disabled={queue.includes(item)}
+          // onClick={addButtonToQueue(item)}
+          // disabled={queue.includes(item)}
+          whileTap={{
+            scale: 1.2,
+          }}
+          drag
+          dragConstraints={{
+            top: -90,
+            left: -200,
+            right: 200,
+            bottom: 0,
+          }}
         >
           {item.text}
         </Button>
@@ -88,7 +94,7 @@ const Queue = styled.div`
   color: #777;
 `;
 
-const Button = styled.button`
+const Button = styled(motion.button)`
   border: none;
   margin: 4px;
   padding: 20px;
