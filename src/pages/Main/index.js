@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -26,6 +26,12 @@ export default function Main() {
   // const removeButtonFromQueue = buttonData => () => {
   //   setQueue(prev => prev.filter(item => item.id !== buttonData.id));
   // }
+
+  const [ isOpenModal, setOpenModal ] = useState(false);
+
+  const onClickExecute = () => {
+    setOpenModal(true);
+  }
 
   return (
     <Container>
@@ -57,6 +63,7 @@ export default function Main() {
           // disabled={queue.includes(item)}
           whileTap={{
             scale: 1.2,
+            boxShadow: '5px 5px 7px rgba(0, 0, 0, .5)',
           }}
           drag
           dragConstraints={{
@@ -72,9 +79,34 @@ export default function Main() {
 
       <br />
 
-      <ButtonExecute>
+      <ButtonExecute
+        onClick={onClickExecute}
+      >
         EXECUTAR
       </ButtonExecute>
+
+      {isOpenModal && (
+        <ModalBack
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <Modal
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: .3 }}
+          >
+            <img
+              src='/check-circle.png'
+              alt='Done'
+            />
+            <h2>Certa resposta!</h2>
+            <ButtonExecute onClick={() => setOpenModal(false)}>
+              Continuar
+            </ButtonExecute>
+          </Modal>
+        </ModalBack>
+      )}
+
     </Container>
   );
 }
@@ -110,5 +142,35 @@ const Button = styled(motion.button)`
 
 const ButtonExecute = styled(Button)`
   background: #17a320;
-  color: #fff
+  color: #fff;
+`;
+
+const ModalBack = styled(motion.div)`
+  background: rgba(0, 0, 0, .5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 128px;
+`;
+
+const Modal = styled(motion.div)`
+  background: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, .8);
+  margin: 0 auto;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 512px;
+  width: 100%;
+  img {
+    width: 128px;
+  }
+  h2 {
+    font-size: 24px;
+    margin: 24px 0px;
+  }
 `;
