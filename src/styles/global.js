@@ -13,7 +13,8 @@ export default createGlobalStyle`
   }
 
   body {
-    background: linear-gradient(to bottom right, #60A6F8, #59ACCC, #314E98);
+    background-image: url('/Background.jpg');
+    background-size: cover;
     -webkit-font-smoothing: antialiased !important;
   }
 
