@@ -7,7 +7,11 @@ import Main2 from './pages/Main2';
 function App() {
   const [ question, setQuestion ] = useState(0);
 
-  const goToNextQuestion = () => setQuestion(1);
+  const goToNextQuestion = () => {
+    setQuestion(1);
+    window.scrollTo(0, 0);
+
+  }
   return (
     <>
       <GlobalStyle />
