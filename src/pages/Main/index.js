@@ -8,10 +8,12 @@ import logo from '../../img/code-flat.png';
 import fase1 from '../../img/fase1.jpg'
 
 const buttons = [
-  { id: 0, text: 'BAIXO' },
-  { id: 1, text: 'BAIXO' },
-  { id: 2, text: 'ACELERAR' },
-  { id: 3, text: 'CIMA' },
+  { id: 0, text: 'ENTÃO IR PARA CIMA' },
+  { id: 1, text: 'E ESTIVER EM BAIXO' },
+  { id: 2, text: 'SE FOR BATER' },
+  { id: 3, text: 'ENTÃO IR PARA BAIXO' },
+  { id: 4, text: 'E ESTIVER EM CIMA' },
+  { id: 5, text: 'SE FOR BATER' },
 ]
 
 export default function Main({

@@ -32,6 +32,7 @@ export const Header = styled.div`
   justify-content: center;
     img {
     width: 60px;
+    margin: 10px;
     }
     h1 {
       font-size: 30px;
