@@ -151,7 +151,7 @@ export const Queue = styled.div`
   border-width: 2px;
   border-color: #bbb;
   width: 100%;
-  height: 100px;
+  height: 150px;
   margin: 16px 0px;
   padding: 8px;
   color: #777;

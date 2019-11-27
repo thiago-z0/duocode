@@ -5,18 +5,18 @@ import Container from '../../components/container';
 import { Header, Question, Queue, Button, ButtonExecute, ModalBack, Modal } from './styles';
 import Row from '../../components/row';
 import logo from '../../img/code-flat.png';
-import fase1 from '../../img/fase1.jpg'
+import fase1 from '../../img/fase2.jpg'
 
 const buttons = [
-  { id: 0, text: 'BAIXO' },
-  { id: 1, text: 'BAIXO' },
-  { id: 2, text: 'ACELERAR' },
-  { id: 3, text: 'CIMA' },
+  { id: 1, text: 'ENTÃO IR PARA CIMA' },
+  { id: 2, text: 'E ESTIVER EM BAIXO' },
+  { id: 3, text: 'SE FOR BATER' },
+  { id: 4, text: 'ENTÃO IR PARA BAIXO' },
+  { id: 5, text: 'E ESTIVER EM CIMA' },
+  { id: 6, text: 'SE FOR BATER' },
 ]
 
-export default function Main({
-  next,
-}) {
+export default function Main() {
 
   // const [ queue, setQueue ] = useState([]);
 
@@ -42,7 +42,7 @@ export default function Main({
         </Header>
         <Row/>
       <Question>
-        1 - Ajude o Carro a chegar ao fim
+        2 - Ajude o Carro a chegar ao fim
       </Question>
 
       <img src={fase1} alt='Descrição' />
@@ -70,8 +70,8 @@ export default function Main({
           }}
           drag
           dragConstraints={{
-            top: -90,
-            left: -200,
+            top: -150,
+            left: -500,
             right: 200,
             bottom: 0,
           }}
@@ -103,7 +103,7 @@ export default function Main({
               alt='Done'
             />
             <h2>Certa resposta!</h2>
-            <ButtonExecute onClick={next}>
+            <ButtonExecute onClick={() => setOpenModal(false)}>
               Continuar
             </ButtonExecute>
           </Modal>
