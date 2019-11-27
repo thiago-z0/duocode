@@ -71,18 +71,6 @@ export const Search = styled.form`
     font-size: 16px;
   }
 
-  button{
-    flex: 1;
-    border: 0px solid #555;
-    padding: 10px 40px;
-    border-radius: 4px;
-    font-size: 16px;
-    float: right;
-    color: #222;
-    background-color:#fff;
-    box-shadow: 0 0 8px rgba(34,67,80, 0.4);
-    transition: all 0.2s linear;
-
   &:hover{
     background-color:#093087;
     color: #fff;
@@ -150,5 +138,39 @@ export const Content = styled.div`
       transition: all 0.2s linear;
     }
   }}
+  
 
+`;
+export const Question = styled.div`
+  font-size: 24px;
+`;
+
+export const Queue = styled.div`
+  border-style: dotted;
+  border-width: 2px;
+  border-color: #bbb;
+  width: 100%;
+  height: 100px;
+  margin: 16px 0px;
+  padding: 8px;
+  color: #777;
+`;
+
+export const Button = styled.button`
+  border: none;
+  margin: 4px;
+  padding: 20px;
+  width: auto;
+  overflow: visible;
+  background: #ddd;
+  border-radius: 16px;
+  :disabled {
+    color: #aaa;
+    background: #eee;
+  }
+`;
+
+export const ButtonExecute = styled(Button)`
+  background: #17a320;
+  color: #fff
 `;
